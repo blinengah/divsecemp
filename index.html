@@ -29,6 +29,7 @@
       --accent-purple: #7c3aed;
       --accent-teal: #0d9488;
       --accent-rose: #e11d48;
+      --accent-indigo: #4f46e5;
       --text-main: #0f172a;
       --text-muted: #475569;
       --text-sub: #64748b;
@@ -98,6 +99,7 @@
     .launchpad-card.card-modul-4 { border-top: 4px solid var(--accent-amber); }
     .launchpad-card.card-modul-5 { border-top: 4px solid var(--accent-teal); }
     .launchpad-card.card-modul-6 { border-top: 4px solid var(--accent-rose); }
+    .launchpad-card.card-modul-7 { border-top: 4px solid var(--accent-indigo); }
 
     /* TIER 2: WORKSPACE */
     #tier-workspace {
@@ -247,7 +249,7 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- TIER 1: LANDING PAGE (KATALOG 6 APLIKASI OPERASIONAL)                    -->
+  <!-- TIER 1: LANDING PAGE (KATALOG 7 APLIKASI OPERASIONAL)                    -->
   <!-- ========================================================================= -->
   <div id="tier-landing" class="animate__animated animate__fadeIn">
     <div class="container py-5">
@@ -261,7 +263,7 @@
         </p>
       </div>
 
-      <!-- DAFTAR APLIKASI (RESPONSIVE 6-MODULE BALANCED GRID) -->
+      <!-- DAFTAR APLIKASI (RESPONSIVE 7-MODULE GRID) -->
       <div class="row g-4 justify-content-center">
         
         <!-- APLIKASI 1: ABSENSI BUJP -->
@@ -274,7 +276,7 @@
                 </div>
                 <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-1 rounded-pill fw-bold">MODUL 01</span>
               </div>
-              <h4 class="fw-bold text-dark mb-2">Absensi & Radar BUJP</h4>
+              <h4 class="fw-bold text-dark mb-2">Absensi BUJP</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
                 Sistem absensi masuk/pulang personel lapangan, validasi jam kerja shift, radar peta sebaran wilayah, dan live rolling ticker pemantauan.
               </p>
@@ -286,7 +288,7 @@
           </div>
         </div>
 
-        <!-- APLIKASI 2: SIM-BUJP LAPORAN & INCIDENT -->
+        <!-- APLIKASI 2: LAPORAN HARIAN & BULANAN -->
         <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-2" onclick="openAppInWorkspace('laporan')">
             <div>
@@ -296,7 +298,7 @@
                 </div>
                 <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-1 rounded-pill fw-bold">MODUL 02</span>
               </div>
-              <h4 class="fw-bold text-dark mb-2">SIM-BUJP Laporan & Insiden</h4>
+              <h4 class="fw-bold text-dark mb-2">Laporan Harian & Bulanan</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
                 Monitoring kepatuhan pengiriman laporan harian & bulanan BUJP, analisis heatmap kepatuhan wilayah, serta penanganan tiket insiden.
               </p>
@@ -330,7 +332,7 @@
           </div>
         </div>
 
-        <!-- APLIKASI 4: BUKU TAMU & VISITOR MANAGEMENT -->
+        <!-- APLIKASI 4: VISITOR EMP -->
         <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-4" onclick="openAppInWorkspace('visitor')">
             <div>
@@ -340,47 +342,47 @@
                 </div>
                 <span class="badge bg-warning bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-amber); border-color: var(--accent-amber) !important; background: rgba(217, 119, 6, 0.1);">MODUL 04</span>
               </div>
-              <h4 class="fw-bold text-dark mb-2">Buku Tamu & Visitor</h4>
+              <h4 class="fw-bold text-dark mb-2">Visitor emp</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
                 Aplikasi pencatatan tamu & pengunjung pos security, registrasi identitas KTP/SIM, kontrol barrier gate, dan riwayat kunjungan area.
               </p>
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-amber);">
-              <span>Buka Buku Tamu</span>
+              <span>Buka Visitor emp</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- APLIKASI 5: MANAJEMEN OPERASIONAL & UNIT -->
+        <!-- APLIKASI 5: KEHADIRAN PEKERJA EMP -->
         <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-5" onclick="openAppInWorkspace('modul5')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="p-3 rounded-3 bg-teal bg-opacity-10" style="color: var(--accent-teal); background: rgba(13, 148, 136, 0.1);">
-                  <i class="fas fa-shield-halved fa-2x"></i>
+                  <i class="fas fa-users-gear fa-2x"></i>
                 </div>
                 <span class="badge bg-teal bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-teal); border-color: var(--accent-teal) !important; background: rgba(13, 148, 136, 0.1);">MODUL 05</span>
               </div>
-              <h4 class="fw-bold text-dark mb-2">Manajemen Unit & Operasional</h4>
+              <h4 class="fw-bold text-dark mb-2">Kehadiran Pekerja emp</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
-                Sistem pengawasan terintegrasi, administrasi data unit lapangan, kendali penugasan sekuriti, dan rekonsiliasi database wilayah.
+                Sistem pengawasan terintegrasi, administrasi data kehadiran pekerja lapangan, kendali penugasan, dan rekonsiliasi database unit.
               </p>
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-teal);">
-              <span>Buka Modul 05</span>
+              <span>Buka Kehadiran Pekerja emp</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
         </div>
 
-        <!-- APLIKASI 6: MODUL 06 OPERASIONAL -->
+        <!-- APLIKASI 6: ANGGARAN DIVISI SECURITY -->
         <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-6" onclick="openAppInWorkspace('modul6')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="p-3 rounded-3 bg-rose bg-opacity-10" style="color: var(--accent-rose); background: rgba(225, 29, 72, 0.1);">
-                  <i class="fas fa-tower-broadcast fa-2x"></i>
+                  <i class="fas fa-wallet fa-2x"></i>
                 </div>
                 <span class="badge bg-rose bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-rose); border-color: var(--accent-rose) !important; background: rgba(225, 29, 72, 0.1);">MODUL 06</span>
               </div>
@@ -391,6 +393,28 @@
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-rose);">
               <span>Buka Anggaran Security</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- APLIKASI 7: WEEKLY REPORT -->
+        <div class="col-xl-4 col-lg-6 col-md-6">
+          <div class="launchpad-card card-modul-7" onclick="openAppInWorkspace('modul7')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3" style="color: var(--accent-indigo); background: rgba(79, 70, 229, 0.1);">
+                  <i class="fas fa-calendar-check fa-2x"></i>
+                </div>
+                <span class="badge border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-indigo); border-color: var(--accent-indigo) !important; background: rgba(79, 70, 229, 0.1);">MODUL 07</span>
+              </div>
+              <h4 class="fw-bold text-dark mb-2">Weekly Report</h4>
+              <p class="text-muted small mb-4" style="line-height: 1.6;">
+                Platform pelaporan dan rekapitulasi performa operasional mingguan, progress checklist pengamanan, dan evaluasi tugas unit.
+              </p>
+            </div>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-indigo);">
+              <span>Buka Weekly Report</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
@@ -416,12 +440,12 @@
         
         <div class="workspace-nav-btn active" id="btnNavAbsensi" onclick="openAppInWorkspace('absensi')">
           <i class="fas fa-fingerprint text-primary"></i>
-          <span>Absensi & Radar BUJP</span>
+          <span>Absensi BUJP</span>
         </div>
 
         <div class="workspace-nav-btn" id="btnNavLaporan" onclick="openAppInWorkspace('laporan')">
           <i class="fas fa-clipboard-list text-info"></i>
-          <span>SIM-BUJP Laporan</span>
+          <span>Laporan Harian & Bulanan</span>
         </div>
 
         <div class="workspace-nav-btn" id="btnNavSummary" onclick="openAppInWorkspace('summary')">
@@ -431,17 +455,22 @@
 
         <div class="workspace-nav-btn" id="btnNavVisitor" onclick="openAppInWorkspace('visitor')">
           <i class="fas fa-id-badge" style="color: var(--accent-amber);"></i>
-          <span>Buku Tamu & Visitor</span>
+          <span>Visitor emp</span>
         </div>
 
         <div class="workspace-nav-btn" id="btnNavModul5" onclick="openAppInWorkspace('modul5')">
-          <i class="fas fa-shield-halved" style="color: var(--accent-teal);"></i>
-          <span>Manajemen Unit & Ops</span>
+          <i class="fas fa-users-gear" style="color: var(--accent-teal);"></i>
+          <span>Kehadiran Pekerja emp</span>
         </div>
 
         <div class="workspace-nav-btn" id="btnNavModul6" onclick="openAppInWorkspace('modul6')">
           <i class="fas fa-wallet" style="color: var(--accent-rose);"></i>
           <span>Anggaran Security</span>
+        </div>
+
+        <div class="workspace-nav-btn" id="btnNavModul7" onclick="openAppInWorkspace('modul7')">
+          <i class="fas fa-calendar-check" style="color: var(--accent-indigo);"></i>
+          <span>Weekly Report</span>
         </div>
 
       </div>
@@ -458,7 +487,7 @@
       <div class="stage-header">
         <div class="d-flex align-items-center gap-2">
           <span class="badge bg-primary text-white small fw-bold" id="currentAppBadge">MODUL 01</span>
-          <span class="text-dark fw-bold small" id="currentAppTitle">Absensi & Radar BUJP</span>
+          <span class="text-dark fw-bold small" id="currentAppTitle">Absensi BUJP</span>
         </div>
         <div class="d-flex align-items-center gap-2">
           <button class="btn btn-sm btn-light border text-dark px-2.5 py-1 rounded-2 shadow-sm" onclick="reloadCurrentIframe()" title="Muat Ulang Aplikasi">
@@ -486,16 +515,16 @@
   
   <script>
     // =========================================================================
-    // ⚙️ DAFTAR 6 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
+    // ⚙️ DAFTAR 7 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
     // =========================================================================
     const APP_REGISTRY = {
       "absensi": {
-        title: "Absensi & Radar BUJP (v6.26)",
+        title: "Absensi BUJP (v6.26)",
         badge: "MODUL 01",
         url: "https://script.google.com/macros/s/AKfycbwO2eb-_vcfEkScj-rEX5lfFgv0cjARn52Frhh2xsBxZe7XKddC4S6UFAnca8YWXN6HJQ/exec?token=absensi426bujp"
       },
       "laporan": {
-        title: "SIM-BUJP Laporan & Insiden (v8.5)",
+        title: "Laporan Harian & Bulanan (v8.5)",
         badge: "MODUL 02",
         url: "https://script.google.com/macros/s/AKfycbxLLyQnNDstg7RJ8vqXeITE72Nq2OT6V_fhXMY2QTgRiSg4cfWoVAlFr9W9UY_z4iptIQ/exec"
       },
@@ -505,12 +534,12 @@
         url: "https://script.google.com/macros/s/AKfycbyrEc5rzEpzZGlx4xNWHcJVBI_Dv8Jyl9Ex9r2pyxQwKFtR2qtfUhrFOERSmBsPcmdwKQ/exec"
       },
       "visitor": {
-        title: "Buku Tamu & Visitor Management (Hybrid)",
+        title: "Visitor emp",
         badge: "MODUL 04",
         url: "https://visitoremp.vercel.app/"
       },
       "modul5": {
-        title: "Manajemen Unit & Operasional BUJP",
+        title: "Kehadiran Pekerja emp",
         badge: "MODUL 05",
         url: "https://script.google.com/macros/s/AKfycby6-o9brCFHz2XKPveky4oGJqGXTqoT7zLUGdhBuXEPupRsMHVIXbqzKPBKY3c4IlK8ig/exec"
       },
@@ -518,6 +547,11 @@
         title: "Anggaran Divisi Security",
         badge: "MODUL 06",
         url: "https://script.google.com/macros/s/AKfycbzLz7bDZjLIjjTRXpjP4T0nKTi1lmEmT6duJ6IhlBQdKd3qdsEP4hbXOKGX9A3iSswk/exec"
+      },
+      "modul7": {
+        title: "Weekly Report",
+        badge: "MODUL 07",
+        url: "https://script.google.com/macros/s/AKfycbzCp0MWztzqkntlpClAL9GNettGLCbe5utg9XbL3H3wDhynV5ksyhUx8d7u8P6D-bXe/exec"
       }
     };
 
@@ -558,6 +592,7 @@
       else if (appKey === 'visitor') document.getElementById('btnNavVisitor').classList.add('active');
       else if (appKey === 'modul5') document.getElementById('btnNavModul5').classList.add('active');
       else if (appKey === 'modul6') document.getElementById('btnNavModul6').classList.add('active');
+      else if (appKey === 'modul7') document.getElementById('btnNavModul7').classList.add('active');
 
       // Update Header Judul Aplikasi
       document.getElementById('currentAppBadge').innerText = APP_REGISTRY[appKey].badge;
