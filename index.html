@@ -26,6 +26,7 @@
       --accent-blue: #0284c7;
       --accent-emerald: #059669;
       --accent-amber: #d97706;
+      --accent-purple: #7c3aed;
       --text-main: #0f172a;
       --text-muted: #475569;
       --text-sub: #64748b;
@@ -75,7 +76,7 @@
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 2rem;
+      padding: 1.75rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       height: 100%;
@@ -89,9 +90,9 @@
       border-color: var(--accent-blue);
       box-shadow: var(--card-shadow-hover);
     }
-    .launchpad-card.active-card {
-      border-top: 4px solid var(--accent-blue);
-    }
+    .launchpad-card.card-modul-1 { border-top: 4px solid var(--accent-blue); }
+    .launchpad-card.card-modul-2 { border-top: 4px solid #0284c7; }
+    .launchpad-card.card-modul-3 { border-top: 4px solid var(--accent-purple); }
 
     /* TIER 2: WORKSPACE */
     #tier-workspace {
@@ -100,7 +101,7 @@
     }
 
     .workspace-sidebar {
-      width: 270px;
+      width: 280px;
       background: #ffffff;
       border-right: 1px solid var(--border-color);
       display: flex;
@@ -195,7 +196,7 @@
     @media (max-width: 992px) {
       .workspace-sidebar {
         position: fixed;
-        left: -270px;
+        left: -280px;
         top: 65px;
         height: calc(100vh - 65px);
         box-shadow: 10px 0 30px rgba(0,0,0,0.1);
@@ -241,7 +242,7 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- TIER 1: LANDING PAGE (KATALOG APLIKASI)                                   -->
+  <!-- TIER 1: LANDING PAGE (KATALOG 3 APLIKASI OPERASIONAL)                    -->
   <!-- ========================================================================= -->
   <div id="tier-landing" class="animate__animated animate__fadeIn">
     <div class="container py-5">
@@ -255,12 +256,12 @@
         </p>
       </div>
 
-      <!-- DAFTAR APLIKASI (LAUNCHPAD) -->
+      <!-- DAFTAR APLIKASI (LAUNCHPAD GRID 3 KOLOM) -->
       <div class="row g-4 justify-content-center">
         
         <!-- APLIKASI 1: ABSENSI BUJP -->
-        <div class="col-lg-5 col-md-6">
-          <div class="launchpad-card active-card" onclick="openAppInWorkspace('absensi')">
+        <div class="col-lg-4 col-md-6">
+          <div class="launchpad-card card-modul-1" onclick="openAppInWorkspace('absensi')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="p-3 rounded-3 bg-primary bg-opacity-10 text-primary">
@@ -270,7 +271,7 @@
               </div>
               <h4 class="fw-bold text-dark mb-2">Absensi & Radar BUJP</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
-                Sistem absensi masuk/pulang personel lapangan, validasi jam kerja shift, radar peta sebaran wilayah, dan live rolling ticker pemantauan operasional.
+                Sistem absensi masuk/pulang personel lapangan, validasi jam kerja shift, radar peta sebaran wilayah, dan live rolling ticker pemantauan.
               </p>
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center text-primary fw-bold small">
@@ -281,8 +282,8 @@
         </div>
 
         <!-- APLIKASI 2: SIM-BUJP LAPORAN & INCIDENT -->
-        <div class="col-lg-5 col-md-6">
-          <div class="launchpad-card active-card" onclick="openAppInWorkspace('laporan')">
+        <div class="col-lg-4 col-md-6">
+          <div class="launchpad-card card-modul-2" onclick="openAppInWorkspace('laporan')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="p-3 rounded-3 bg-info bg-opacity-10 text-info">
@@ -292,11 +293,33 @@
               </div>
               <h4 class="fw-bold text-dark mb-2">SIM-BUJP Laporan & Insiden</h4>
               <p class="text-muted small mb-4" style="line-height: 1.6;">
-                Monitoring kepatuhan pengiriman laporan harian & bulanan BUJP, analisis heatmap kepatuhan wilayah, serta penanganan tiket insiden operasional.
+                Monitoring kepatuhan pengiriman laporan harian & bulanan BUJP, analisis heatmap kepatuhan wilayah, serta penanganan tiket insiden.
               </p>
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center text-primary fw-bold small">
               <span>Buka Aplikasi Laporan</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- APLIKASI 3: SUMMARY KEHADIRAN BUJP -->
+        <div class="col-lg-4 col-md-6">
+          <div class="launchpad-card card-modul-3" onclick="openAppInWorkspace('summary')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3 bg-purple bg-opacity-10" style="color: var(--accent-purple); background: rgba(124, 58, 237, 0.1);">
+                  <i class="fas fa-chart-pie fa-2x"></i>
+                </div>
+                <span class="badge bg-purple bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-purple); border-color: var(--accent-purple) !important; background: rgba(124, 58, 237, 0.1);">MODUL 03</span>
+              </div>
+              <h4 class="fw-bold text-dark mb-2">Summary Kehadiran BUJP</h4>
+              <p class="text-muted small mb-4" style="line-height: 1.6;">
+                Executive dashboard rekapitulasi kehadiran, analisis tren presensi bulanan, komparasi target kuota personel, dan ekspor data performa.
+              </p>
+            </div>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-purple);">
+              <span>Buka Summary Kehadiran</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
@@ -328,6 +351,11 @@
         <div class="workspace-nav-btn" id="btnNavLaporan" onclick="openAppInWorkspace('laporan')">
           <i class="fas fa-clipboard-list text-info"></i>
           <span>SIM-BUJP Laporan</span>
+        </div>
+
+        <div class="workspace-nav-btn" id="btnNavSummary" onclick="openAppInWorkspace('summary')">
+          <i class="fas fa-chart-pie" style="color: var(--accent-purple);"></i>
+          <span>Summary Kehadiran BUJP</span>
         </div>
 
       </div>
@@ -372,7 +400,7 @@
   
   <script>
     // =========================================================================
-    // ⚙️ DAFTAR APLIKASI RESMI TERINTEGRASI
+    // ⚙️ DAFTAR 3 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
     // =========================================================================
     const APP_REGISTRY = {
       "absensi": {
@@ -384,6 +412,11 @@
         title: "SIM-BUJP Laporan & Insiden (v8.5)",
         badge: "MODUL 02",
         url: "https://script.google.com/macros/s/AKfycbxLLyQnNDstg7RJ8vqXeITE72Nq2OT6V_fhXMY2QTgRiSg4cfWoVAlFr9W9UY_z4iptIQ/exec"
+      },
+      "summary": {
+        title: "Summary Kehadiran BUJP (v8.8)",
+        badge: "MODUL 03",
+        url: "https://script.google.com/macros/s/AKfycbyrEc5rzEpzZGlx4xNWHcJVBI_Dv8Jyl9Ex9r2pyxQwKFtR2qtfUhrFOERSmBsPcmdwKQ/exec"
       }
     };
 
@@ -398,7 +431,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Navigasi Antar Halaman Portal
+    // Navigasi Antar Halaman Portal (Landing vs Workspace)
     function navigateTier(tierId) {
       if (tierId === 'landing') {
         document.getElementById('tier-landing').classList.remove('d-none');
@@ -420,12 +453,13 @@
       document.querySelectorAll('.workspace-nav-btn').forEach(btn => btn.classList.remove('active'));
       if (appKey === 'absensi') document.getElementById('btnNavAbsensi').classList.add('active');
       else if (appKey === 'laporan') document.getElementById('btnNavLaporan').classList.add('active');
+      else if (appKey === 'summary') document.getElementById('btnNavSummary').classList.add('active');
 
       // Update Header Judul Aplikasi
       document.getElementById('currentAppBadge').innerText = APP_REGISTRY[appKey].badge;
       document.getElementById('currentAppTitle').innerText = APP_REGISTRY[appKey].title;
 
-      // Muat Iframe Aplikasi Asli
+      // Muat Iframe Aplikasi
       showLoader();
       document.getElementById('mainAppFrame').src = APP_REGISTRY[appKey].url;
     }
