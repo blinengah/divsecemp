@@ -27,6 +27,7 @@
       --accent-emerald: #059669;
       --accent-amber: #d97706;
       --accent-purple: #7c3aed;
+      --accent-teal: #0d9488;
       --text-main: #0f172a;
       --text-muted: #475569;
       --text-sub: #64748b;
@@ -94,6 +95,7 @@
     .launchpad-card.card-modul-2 { border-top: 4px solid #0284c7; }
     .launchpad-card.card-modul-3 { border-top: 4px solid var(--accent-purple); }
     .launchpad-card.card-modul-4 { border-top: 4px solid var(--accent-amber); }
+    .launchpad-card.card-modul-5 { border-top: 4px solid var(--accent-teal); }
 
     /* TIER 2: WORKSPACE */
     #tier-workspace {
@@ -243,7 +245,7 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- TIER 1: LANDING PAGE (KATALOG 4 APLIKASI OPERASIONAL)                    -->
+  <!-- TIER 1: LANDING PAGE (KATALOG 5 APLIKASI OPERASIONAL)                    -->
   <!-- ========================================================================= -->
   <div id="tier-landing" class="animate__animated animate__fadeIn">
     <div class="container py-5">
@@ -257,11 +259,11 @@
         </p>
       </div>
 
-      <!-- DAFTAR APLIKASI (RESPONSIVE 4-MODULE GRID) -->
+      <!-- DAFTAR APLIKASI (RESPONSIVE 5-MODULE GRID) -->
       <div class="row g-4 justify-content-center">
         
         <!-- APLIKASI 1: ABSENSI BUJP -->
-        <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-1" onclick="openAppInWorkspace('absensi')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -283,7 +285,7 @@
         </div>
 
         <!-- APLIKASI 2: SIM-BUJP LAPORAN & INCIDENT -->
-        <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-2" onclick="openAppInWorkspace('laporan')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -305,7 +307,7 @@
         </div>
 
         <!-- APLIKASI 3: SUMMARY KEHADIRAN BUJP -->
-        <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-3" onclick="openAppInWorkspace('summary')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -327,7 +329,7 @@
         </div>
 
         <!-- APLIKASI 4: BUKU TAMU & VISITOR MANAGEMENT -->
-        <div class="col-xl-3 col-lg-6 col-md-6">
+        <div class="col-xl-4 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-4" onclick="openAppInWorkspace('visitor')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -343,6 +345,28 @@
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-amber);">
               <span>Buka Buku Tamu</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- APLIKASI 5: MANAJEMEN OPERASIONAL & UNIT -->
+        <div class="col-xl-4 col-lg-6 col-md-6">
+          <div class="launchpad-card card-modul-5" onclick="openAppInWorkspace('modul5')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3 bg-teal bg-opacity-10" style="color: var(--accent-teal); background: rgba(13, 148, 136, 0.1);">
+                  <i class="fas fa-shield-halved fa-2x"></i>
+                </div>
+                <span class="badge bg-teal bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-teal); border-color: var(--accent-teal) !important; background: rgba(13, 148, 136, 0.1);">MODUL 05</span>
+              </div>
+              <h4 class="fw-bold text-dark mb-2">Manajemen Unit & Operasional</h4>
+              <p class="text-muted small mb-4" style="line-height: 1.6;">
+                Sistem pengawasan terintegrasi, administrasi data unit lapangan, kendali penugasan sekuriti, dan rekonsiliasi database wilayah.
+              </p>
+            </div>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-teal);">
+              <span>Buka Modul 05</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
@@ -384,6 +408,11 @@
         <div class="workspace-nav-btn" id="btnNavVisitor" onclick="openAppInWorkspace('visitor')">
           <i class="fas fa-id-badge" style="color: var(--accent-amber);"></i>
           <span>Buku Tamu & Visitor</span>
+        </div>
+
+        <div class="workspace-nav-btn" id="btnNavModul5" onclick="openAppInWorkspace('modul5')">
+          <i class="fas fa-shield-halved" style="color: var(--accent-teal);"></i>
+          <span>Manajemen Unit & Ops</span>
         </div>
 
       </div>
@@ -428,7 +457,7 @@
   
   <script>
     // =========================================================================
-    // ⚙️ DAFTAR 4 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
+    // ⚙️ DAFTAR 5 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
     // =========================================================================
     const APP_REGISTRY = {
       "absensi": {
@@ -451,8 +480,8 @@
         badge: "MODUL 04",
         url: "https://visitoremp.vercel.app/"
       },
-      "pekerja": {
-        title: "Double Cek Kehadiran Pekerja",
+      "modul5": {
+        title: "Manajemen Unit & Operasional BUJP",
         badge: "MODUL 05",
         url: "https://script.google.com/macros/s/AKfycby6-o9brCFHz2XKPveky4oGJqGXTqoT7zLUGdhBuXEPupRsMHVIXbqzKPBKY3c4IlK8ig/exec"
       }
@@ -493,6 +522,7 @@
       else if (appKey === 'laporan') document.getElementById('btnNavLaporan').classList.add('active');
       else if (appKey === 'summary') document.getElementById('btnNavSummary').classList.add('active');
       else if (appKey === 'visitor') document.getElementById('btnNavVisitor').classList.add('active');
+      else if (appKey === 'modul5') document.getElementById('btnNavModul5').classList.add('active');
 
       // Update Header Judul Aplikasi
       document.getElementById('currentAppBadge').innerText = APP_REGISTRY[appKey].badge;
