@@ -93,6 +93,7 @@
     .launchpad-card.card-modul-1 { border-top: 4px solid var(--accent-blue); }
     .launchpad-card.card-modul-2 { border-top: 4px solid #0284c7; }
     .launchpad-card.card-modul-3 { border-top: 4px solid var(--accent-purple); }
+    .launchpad-card.card-modul-4 { border-top: 4px solid var(--accent-amber); }
 
     /* TIER 2: WORKSPACE */
     #tier-workspace {
@@ -242,7 +243,7 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- TIER 1: LANDING PAGE (KATALOG 3 APLIKASI OPERASIONAL)                    -->
+  <!-- TIER 1: LANDING PAGE (KATALOG 4 APLIKASI OPERASIONAL)                    -->
   <!-- ========================================================================= -->
   <div id="tier-landing" class="animate__animated animate__fadeIn">
     <div class="container py-5">
@@ -256,11 +257,11 @@
         </p>
       </div>
 
-      <!-- DAFTAR APLIKASI (LAUNCHPAD GRID 3 KOLOM) -->
+      <!-- DAFTAR APLIKASI (RESPONSIVE 4-MODULE GRID) -->
       <div class="row g-4 justify-content-center">
         
         <!-- APLIKASI 1: ABSENSI BUJP -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-xl-3 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-1" onclick="openAppInWorkspace('absensi')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -282,7 +283,7 @@
         </div>
 
         <!-- APLIKASI 2: SIM-BUJP LAPORAN & INCIDENT -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-xl-3 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-2" onclick="openAppInWorkspace('laporan')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -304,7 +305,7 @@
         </div>
 
         <!-- APLIKASI 3: SUMMARY KEHADIRAN BUJP -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-xl-3 col-lg-6 col-md-6">
           <div class="launchpad-card card-modul-3" onclick="openAppInWorkspace('summary')">
             <div>
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -320,6 +321,28 @@
             </div>
             <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-purple);">
               <span>Buka Summary Kehadiran</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- APLIKASI 4: BUKU TAMU & VISITOR MANAGEMENT -->
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="launchpad-card card-modul-4" onclick="openAppInWorkspace('visitor')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3 bg-warning bg-opacity-10" style="color: var(--accent-amber); background: rgba(217, 119, 6, 0.1);">
+                  <i class="fas fa-id-badge fa-2x"></i>
+                </div>
+                <span class="badge bg-warning bg-opacity-10 border border-opacity-25 px-3 py-1 rounded-pill fw-bold" style="color: var(--accent-amber); border-color: var(--accent-amber) !important; background: rgba(217, 119, 6, 0.1);">MODUL 04</span>
+              </div>
+              <h4 class="fw-bold text-dark mb-2">Buku Tamu & Visitor</h4>
+              <p class="text-muted small mb-4" style="line-height: 1.6;">
+                Aplikasi pencatatan tamu & pengunjung pos security, registrasi identitas KTP/SIM, kontrol barrier gate, dan riwayat kunjungan area.
+              </p>
+            </div>
+            <div class="pt-3 border-top d-flex justify-content-between align-items-center fw-bold small" style="color: var(--accent-amber);">
+              <span>Buka Buku Tamu</span>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
@@ -355,7 +378,12 @@
 
         <div class="workspace-nav-btn" id="btnNavSummary" onclick="openAppInWorkspace('summary')">
           <i class="fas fa-chart-pie" style="color: var(--accent-purple);"></i>
-          <span>Summary Kehadiran BUJP</span>
+          <span>Summary Kehadiran</span>
+        </div>
+
+        <div class="workspace-nav-btn" id="btnNavVisitor" onclick="openAppInWorkspace('visitor')">
+          <i class="fas fa-id-badge" style="color: var(--accent-amber);"></i>
+          <span>Buku Tamu & Visitor</span>
         </div>
 
       </div>
@@ -400,7 +428,7 @@
   
   <script>
     // =========================================================================
-    // ⚙️ DAFTAR 3 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
+    // ⚙️ DAFTAR 4 APLIKASI RESMI TERINTEGRASI (APP REGISTRY)
     // =========================================================================
     const APP_REGISTRY = {
       "absensi": {
@@ -417,6 +445,11 @@
         title: "Summary Kehadiran BUJP (v8.8)",
         badge: "MODUL 03",
         url: "https://script.google.com/macros/s/AKfycbyrEc5rzEpzZGlx4xNWHcJVBI_Dv8Jyl9Ex9r2pyxQwKFtR2qtfUhrFOERSmBsPcmdwKQ/exec"
+      },
+      "visitor": {
+        title: "Buku Tamu & Visitor Management (Hybrid)",
+        badge: "MODUL 04",
+        url: "https://visitoremp.vercel.app/"
       }
     };
 
@@ -454,6 +487,7 @@
       if (appKey === 'absensi') document.getElementById('btnNavAbsensi').classList.add('active');
       else if (appKey === 'laporan') document.getElementById('btnNavLaporan').classList.add('active');
       else if (appKey === 'summary') document.getElementById('btnNavSummary').classList.add('active');
+      else if (appKey === 'visitor') document.getElementById('btnNavVisitor').classList.add('active');
 
       // Update Header Judul Aplikasi
       document.getElementById('currentAppBadge').innerText = APP_REGISTRY[appKey].badge;
