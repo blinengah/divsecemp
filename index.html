@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <title>Aplikasi Terintegrasi Divisi Security EMP</title>
 
-  <!-- OPEN GRAPH & SOCIAL PREVIEW META -->
+  <!-- OPEN GRAPH & SOCIAL PREVIEW META (WHATSAPP PREVIEW READY) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://divsecemp.vercel.app/">
   <meta property="og:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta property="og:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta name="twitter:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
 
@@ -20,7 +21,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- GOOGLE FONTS (PRECISION SANS) & CSS LIBRARIES -->
+  <!-- GOOGLE FONTS (MAZDA PRECISION SANS) & LIBRARIES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,13 +33,13 @@
     :root {
       --mazda-black: #0a0a0a;
       --mazda-dark: #121212;
-      --mazda-surface: rgba(24, 24, 24, 0.78);
-      --mazda-surface-hover: rgba(36, 36, 36, 0.88);
+      --mazda-surface: rgba(18, 18, 18, 0.85);
+      --mazda-surface-hover: rgba(28, 28, 28, 0.95);
       --mazda-border: rgba(255, 255, 255, 0.12);
       --mazda-border-hover: rgba(255, 255, 255, 0.35);
       --mazda-red: #c00000;
-      --mazda-red-glow: rgba(192, 0, 0, 0.4);
-      --mazda-silver: #e5e7eb;
+      --mazda-red-glow: rgba(192, 0, 0, 0.45);
+      --mazda-silver: #f3f4f6;
       --mazda-muted: #9ca3af;
       --mazda-sub: #6b7280;
     }
@@ -61,9 +62,9 @@
     ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
 
-    /* TOPBAR */
+    /* TOPBAR (FLOATING COCKPIT NAV) */
     .mazda-navbar {
-      background: rgba(14, 14, 14, 0.92);
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--mazda-border);
@@ -72,7 +73,7 @@
     }
 
     .brand-mark {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 800;
       letter-spacing: 0.18em;
       color: #ffffff;
@@ -90,148 +91,175 @@
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 0, 0, 0); }
     }
 
-    /* TIER 1: LANDING PAGE (CINEMATIC OFFSHORE RIG BACKDROP) */
+    /* TIER 1: LANDING PAGE (CINEMATIC OFFSHORE RIG BACKDROP & SCROLLING STORY) */
     #tier-landing {
       height: calc(100vh - 68px);
       overflow-y: auto;
       position: relative;
       background: 
-        linear-gradient(180deg, rgba(10, 10, 10, 0.78) 0%, rgba(10, 10, 10, 0.92) 65%, rgba(10, 10, 10, 0.98) 100%),
-        url('https://images.unsplash.com/photo-1541256996761-85df2efaa164?q=80&w=2070&auto=format&fit=crop') center center / cover no-repeat fixed;
-      padding-bottom: 4rem;
+        linear-gradient(180deg, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.94) 50%, rgba(10, 10, 10, 0.98) 100%),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop') center center / cover no-repeat fixed;
+      padding-bottom: 5rem;
     }
 
     .hero-kicker {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 800;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.28em;
       color: var(--mazda-red);
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .hero-title {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: #ffffff;
       line-height: 1.15;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     }
 
     .hero-lead {
-      color: var(--mazda-silver);
+      color: #e5e7eb;
       font-size: 1.05rem;
       font-weight: 400;
-      line-height: 1.6;
-      max-width: 680px;
+      line-height: 1.7;
+      max-width: 720px;
       margin: 0 auto;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
     }
 
-    /* CARDS (FROSTED GLASS SHOWCASE AESTHETIC) */
-    .mazda-card {
-      background: rgba(24, 24, 24, 0.78);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 2rem 1.75rem;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-      height: 100%;
+    /* MAZDA EDITORIAL SHOWCASE ITEM */
+    .editorial-section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    .editorial-section:last-child {
+      border-bottom: none;
+    }
+
+    .editorial-content {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
-    .mazda-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: transparent;
-      transition: background 0.3s ease;
-    }
-    .mazda-card:hover {
-      transform: translateY(-6px);
-      background: var(--mazda-surface-hover);
-      border-color: var(--mazda-border-hover);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
-    }
-    .mazda-card:hover::before {
-      background: var(--mazda-red);
+      justify-content: center;
+      padding: 1.5rem 2rem;
     }
 
-    .card-badge {
+    .editorial-kicker {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: var(--mazda-sub);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .editorial-kicker i {
+      color: var(--mazda-red);
+    }
+
+    .editorial-heading {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .editorial-desc {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      font-weight: 400;
+      margin-bottom: 1.75rem;
+      max-width: 520px;
+    }
+
+    /* MAZDA UNDERLINED TEXT CTA */
+    .mazda-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding-bottom: 6px;
+      position: relative;
+      cursor: pointer;
+      width: fit-content;
+      transition: all 0.3s ease;
+    }
+    .mazda-cta-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+    }
+    .mazda-cta-link:hover {
+      color: var(--mazda-red);
+    }
+    .mazda-cta-link:hover::after {
+      background: var(--mazda-red);
+      width: 110%;
+    }
+    .mazda-cta-link i {
+      font-size: 0.75rem;
+      transition: transform 0.25s ease;
+    }
+    .mazda-cta-link:hover i {
+      transform: translateX(5px);
+    }
+
+    /* EDITORIAL MEDIA CONTAINER */
+    .editorial-media-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16 / 10;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--mazda-border);
+      cursor: pointer;
+      background: #181818;
+    }
+    .editorial-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+      filter: brightness(0.88);
+    }
+    .editorial-media-wrap:hover .editorial-media-img {
+      transform: scale(1.04);
+      filter: brightness(1);
+    }
+    .media-badge-overlay {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
       font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.15em;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
       padding: 5px 12px;
       border-radius: 50px;
       text-transform: uppercase;
-    }
-
-    .card-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    .mazda-card:hover .card-icon-wrap {
-      background: var(--mazda-red);
-      border-color: var(--mazda-red);
-      box-shadow: 0 0 15px var(--mazda-red-glow);
-    }
-
-    .card-title-text {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card-desc-text {
-      color: #cbd5e1;
-      font-size: 0.85rem;
-      line-height: 1.55;
-      font-weight: 400;
-      margin-bottom: 1.75rem;
-    }
-
-    .card-action-link {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #ffffff;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1.25rem;
-      transition: color 0.2s ease;
-    }
-    .card-action-link i {
-      transition: transform 0.2s ease;
-      font-size: 0.75rem;
-    }
-    .mazda-card:hover .card-action-link i {
-      transform: translateX(4px);
-      color: var(--mazda-red);
+      z-index: 2;
     }
 
     /* TIER 2: WORKSPACE */
@@ -351,6 +379,18 @@
       border-color: #ffffff;
     }
 
+    .card-badge-small {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+
     @media (max-width: 992px) {
       .workspace-sidebar {
         position: fixed;
@@ -360,7 +400,9 @@
         box-shadow: 15px 0 40px rgba(0,0,0,0.8);
       }
       .workspace-sidebar.show { left: 0; }
-      .hero-title { font-size: 2.1rem; }
+      .hero-title { font-size: 2.2rem; }
+      .editorial-heading { font-size: 1.4rem; }
+      .editorial-content { padding: 1.5rem 0.5rem; }
     }
   </style>
 </head>
@@ -373,12 +415,12 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="d-flex align-items-center gap-2" style="cursor: pointer;" onclick="navigateTier('landing')">
-        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid var(--mazda-border);">
+        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 36px; height: 36px; background: rgba(255,255,255,0.06); border: 1px solid var(--mazda-border);">
           <i class="fas fa-shield-halved fs-6 text-white"></i>
         </div>
         <div class="d-flex align-items-center">
           <span class="brand-mark">EMP SECURITY</span>
-          <span class="badge ms-2 px-2 py-1 small" style="font-size: 0.62rem; background: rgba(255,255,255,0.06); border: 1px solid var(--mazda-border); letter-spacing: 0.1em;">ENTERPRISE</span>
+          <span class="badge ms-2 px-2 py-1 small" style="font-size: 0.62rem; background: rgba(255,255,255,0.06); border: 1px solid var(--mazda-border); letter-spacing: 0.1em;">OPERATIONAL</span>
         </div>
       </div>
     </div>
@@ -386,7 +428,7 @@
     <!-- Center Status Indicator -->
     <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.04); border: 1px solid var(--mazda-border);">
       <div class="pulse-radar"></div>
-      <small class="fw-semibold" style="font-size: 0.72rem; letter-spacing: 0.08em; color: var(--mazda-muted);">PORTAL SYSTEM: <span class="text-white fw-bold">ONLINE</span></small>
+      <small class="fw-semibold" style="font-size: 0.72rem; letter-spacing: 0.08em; color: var(--mazda-muted);">COMMAND SYSTEM: <span class="text-white fw-bold">ONLINE</span></small>
     </div>
 
     <!-- Right Clock & Actions -->
@@ -401,181 +443,204 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- TIER 1: LANDING PAGE (SHOWROOM VEHICLE LINEUP STYLE)                     -->
+  <!-- TIER 1: LANDING PAGE (MAZDA USA STAGGERED EDITORIAL SHOWCASE)             -->
   <!-- ========================================================================= -->
   <div id="tier-landing" class="animate__animated animate__fadeIn">
-    <div class="container py-5">
-      <div class="text-center mb-5 pt-3">
+    
+    <!-- HERO TITLE -->
+    <div class="container pt-5 pb-4">
+      <div class="text-center mb-4 pt-3">
         <div class="hero-kicker">Integrated Security & Operations Suite</div>
         <h1 class="hero-title mb-3">Pusat Layanan Aplikasi Terpadu</h1>
         <p class="hero-lead">
-          Pusat kendali operasional pengamanan terpadu Divisi Security EMP. Dirancang untuk presisi pemantauan presensi, tata kelola laporan, kontrol akses visitor, dan akuntabilitas anggaran.
+          Pusat kendali operasional pengamanan terpadu Divisi Security EMP. Mengintegrasikan presisi pemantauan presensi, tata kelola laporan berkala, kontrol akses visitor, dan akuntabilitas anggaran wilayah.
         </p>
       </div>
+    </div>
 
-      <!-- SHOWROOM GRID (7 APPS) -->
-      <div class="row g-4 justify-content-center">
-        
-        <!-- MODUL 01: ABSENSI BUJP -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('absensi')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-fingerprint"></i>
-                </div>
-                <span class="card-badge">Modul 01</span>
-              </div>
-              <h4 class="card-title-text">Absensi BUJP</h4>
-              <p class="card-desc-text">
-                Pemantauan presensi personel lapangan secara real-time, validasi jendela shift per wilayah kerja, dan radar live monitoring.
+    <!-- STAGGERED EDITORIAL SHOWCASE (ZIG-ZAG SECTIONS) -->
+    <div class="container">
+
+      <!-- MODUL 01: ABSENSI BUJP -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-fingerprint"></i> Modul 01 &bull; Real-time Attendance</div>
+              <h2 class="editorial-heading">Absensi BUJP & Radar</h2>
+              <p class="editorial-desc">
+                Pemantauan presensi personel pengamanan secara real-time di seluruh wilayah penugasan, dilengkapi validasi jam shift kerja, radar peta live monitoring, dan audit perangkat anti-titip absen.
               </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('absensi')">
+                <span>Buka Instrumen Absensi</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
+          </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('absensi')">
+              <span class="media-badge-overlay">Modul 01</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?q=80&w=1200&auto=format&fit=crop" alt="Absensi BUJP">
             </div>
           </div>
         </div>
-
-        <!-- MODUL 02: LAPORAN HARIAN & BULANAN -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('laporan')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-clipboard-list"></i>
-                </div>
-                <span class="card-badge">Modul 02</span>
-              </div>
-              <h4 class="card-title-text">Laporan Harian & Bulanan</h4>
-              <p class="card-desc-text">
-                Monitoring kepatuhan pengiriman berkas laporan rutin, heatmap evaluasi per wilayah, dan penanganan tiket insiden operasional.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODUL 03: SUMMARY KEHADIRAN BUJP -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('summary')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-chart-pie"></i>
-                </div>
-                <span class="card-badge">Modul 03</span>
-              </div>
-              <h4 class="card-title-text">Summary Kehadiran BUJP</h4>
-              <p class="card-desc-text">
-                Dashboard eksekutif rekapitulasi data kehadiran, analisis komparasi kuota personel terjadwal, dan kalkulasi performa bulanan.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODUL 04: VISITOR EMP -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('visitor')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-id-badge"></i>
-                </div>
-                <span class="card-badge">Modul 04</span>
-              </div>
-              <h4 class="card-title-text">Visitor emp</h4>
-              <p class="card-desc-text">
-                Pencatatan data pengunjung pos penjagaan, verifikasi identitas KTP/SIM, kontrol portal barrier gate, dan riwayat log akses.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODUL 05: KEHADIRAN PEKERJA EMP -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('modul5')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-users-gear"></i>
-                </div>
-                <span class="card-badge">Modul 05</span>
-              </div>
-              <h4 class="card-title-text">Kehadiran Pekerja emp</h4>
-              <p class="card-desc-text">
-                Sistem pengawasan terintegrasi kehadiran pekerja lapangan, penugasan unit pengamanan, dan sinkronisasi database operasional.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODUL 06: ANGGARAN DIVISI SECURITY -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('modul6')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-wallet"></i>
-                </div>
-                <span class="card-badge">Modul 06</span>
-              </div>
-              <h4 class="card-title-text">Anggaran Divisi Security</h4>
-              <p class="card-desc-text">
-                Instrumen pengelolaan, monitoring realisasi pembiayaan, dan evaluasi anggaran biaya operasional divisi pengamanan.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODUL 07: WEEKLY REPORT -->
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div class="mazda-card" onclick="openAppInWorkspace('modul7')">
-            <div>
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="card-icon-wrap">
-                  <i class="fas fa-calendar-check"></i>
-                </div>
-                <span class="card-badge">Modul 07</span>
-              </div>
-              <h4 class="card-title-text">Weekly Report</h4>
-              <p class="card-desc-text">
-                Platform pelaporan dan rekapitulasi performa operasional mingguan, progress checklist pengamanan, dan evaluasi tugas unit.
-              </p>
-            </div>
-            <div class="card-action-link">
-              <span>Buka Instrumen</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- MODUL 02: LAPORAN HARIAN & BULANAN -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-2 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-clipboard-list"></i> Modul 02 &bull; Compliance & Incident</div>
+              <h2 class="editorial-heading">Laporan Harian & Bulanan</h2>
+              <p class="editorial-desc">
+                Sistem pengawasan kepatuhan penyerahan berkas laporan rutin BUJP, evaluasi heatmap kehadiran wilayah kerja, serta rekam jejak lifecycle penanganan tiket insiden operasional.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('laporan')">
+                <span>Buka Instrumen Laporan</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('laporan')">
+              <span class="media-badge-overlay">Modul 02</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop" alt="Laporan Harian & Bulanan">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODUL 03: SUMMARY KEHADIRAN BUJP -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-chart-pie"></i> Modul 03 &bull; Executive Analytics</div>
+              <h2 class="editorial-heading">Summary Kehadiran BUJP</h2>
+              <p class="editorial-desc">
+                Dashboard analitik eksekutif untuk rekapitulasi data kehadiran, pemantauan tren performa satpam bulanan, serta perbandingan kuota penugasan terhadap aktual operasional.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('summary')">
+                <span>Buka Summary Kehadiran</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('summary')">
+              <span class="media-badge-overlay">Modul 03</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Summary Kehadiran">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODUL 04: VISITOR EMP -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-2 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-id-badge"></i> Modul 04 &bull; Access & Barrier Control</div>
+              <h2 class="editorial-heading">Visitor emp</h2>
+              <p class="editorial-desc">
+                Aplikasi pencatatan tamu dan pengunjung pos security, registrasi identitas KTP/SIM, otorisasi akses masuk area terbatas, dan riwayat log kunjungan lingkungan migas.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('visitor')">
+                <span>Buka Visitor emp</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('visitor')">
+              <span class="media-badge-overlay">Modul 04</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Visitor emp">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODUL 05: KEHADIRAN PEKERJA EMP -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-users-gear"></i> Modul 05 &bull; Workforce Management</div>
+              <h2 class="editorial-heading">Kehadiran Pekerja emp</h2>
+              <p class="editorial-desc">
+                Sistem terintegrasi pengawasan presensi pekerja lapangan, penugasan unit kerja internal, dan rekonsiliasi data operasional pada seluruh asset EMP.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('modul5')">
+                <span>Buka Kehadiran Pekerja</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul5')">
+              <span class="media-badge-overlay">Modul 05</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" alt="Kehadiran Pekerja emp">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODUL 06: ANGGARAN DIVISI SECURITY -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-2 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-wallet"></i> Modul 06 &bull; Budget & Finance Control</div>
+              <h2 class="editorial-heading">Anggaran Divisi Security</h2>
+              <p class="editorial-desc">
+                Instrumen pengelolaan, pemantauan realisasi pembiayaan, serta evaluasi menyeluruh atas anggaran biaya operasional pengamanan divisi security.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('modul6')">
+                <span>Buka Anggaran Security</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul6')">
+              <span class="media-badge-overlay">Modul 06</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Anggaran Security">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODUL 07: WEEKLY REPORT -->
+      <div class="editorial-section">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="editorial-content">
+              <div class="editorial-kicker"><i class="fas fa-calendar-check"></i> Modul 07 &bull; Periodic Operations</div>
+              <h2 class="editorial-heading">Weekly Report</h2>
+              <p class="editorial-desc">
+                Platform pelaporan dan rekapitulasi performa operasional berkala mingguan, progress checklist pengamanan, serta evaluasi capaian tugas lapangan.
+              </p>
+              <a class="mazda-cta-link" onclick="openAppInWorkspace('modul7')">
+                <span>Buka Weekly Report</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul7')">
+              <span class="media-badge-overlay">Modul 07</span>
+              <img class="editorial-media-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Weekly Report">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- TIER 2: WORKSPACE VIEW                                                    -->
+  <!-- TIER 2: WORKSPACE VIEW (SMART COCKPIT VIEWPORT)                           -->
   <!-- ========================================================================= -->
   <div id="tier-workspace" class="d-none">
     
@@ -636,7 +701,7 @@
       <!-- STAGE HEADER -->
       <div class="stage-header">
         <div class="d-flex align-items-center gap-2">
-          <span class="card-badge" id="currentAppBadge">Modul 01</span>
+          <span class="card-badge-small" id="currentAppBadge">Modul 01</span>
           <span class="text-white fw-bold small ms-1" id="currentAppTitle">Absensi BUJP</span>
         </div>
         <div class="d-flex align-items-center gap-2">
