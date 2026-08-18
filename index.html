@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>NOC Enterprise — Unified App Portal</title>
+
+  <!-- CSS FRAMEWORK & ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    :root {
+      --bg-base: #090d16;
+      --bg-surface: #0f172a;
+      --bg-surface-elevated: #1e293b;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* TOPBAR */
+    .portal-navbar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      height: 65px;
+      z-index: 1050;
+    }
+
+    .pulse-dot-green {
+      width: 10px; height: 10px; background-color: var(--accent-emerald); border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+      animation: pulseGreen 1.8s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* TIER 1: LANDING GATEWAY */
+    #tier-landing {
+      height: calc(100vh - 65px);
+      overflow-y: auto;
+      background: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.15) 0%, rgba(9, 13, 22, 1) 75%);
+    }
+
+    .launchpad-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.8) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .launchpad-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
+    }
+
+    /* TIER 2: WORKSPACE */
+    #tier-workspace {
+      height: calc(100vh - 65px);
+      display: flex;
+    }
+
+    .workspace-sidebar {
+      width: 270px;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem 1rem;
+      transition: all 0.3s ease;
+      z-index: 1040;
+    }
+
+    .nav-category {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      color: #64748b;
+      text-transform: uppercase;
+      margin: 1.2rem 0 0.4rem 0.5rem;
+    }
+
+    .workspace-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      margin-bottom: 4px;
+    }
+    .workspace-nav-btn:hover {
+      background: var(--bg-surface-elevated);
+      color: #ffffff;
+    }
+    .workspace-nav-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border-color: rgba(56, 189, 248, 0.35);
+      font-weight: 700;
+    }
+
+    /* SMART IFRAME STAGE */
+    .workspace-stage {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #000;
+      position: relative;
+    }
+
+    .stage-header {
+      height: 48px;
+      background: #0f172a;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+
+    .app-iframe-container {
+      flex: 1;
+      position: relative;
+      width: 100%;
+      height: calc(100% - 48px);
+    }
+
+    .app-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #ffffff;
+    }
+
+    /* IFRAME LOADING SPINNER */
+    .frame-loader {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(9, 13, 22, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 992px) {
+      .workspace-sidebar {
+        position: fixed;
+        left: -270px;
+        top: 65px;
+        height: calc(100vh - 65px);
+      }
+      .workspace-sidebar.show { left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR NAVBAR -->
+  <nav class="portal-navbar px-3 px-md-4 d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-dark d-lg-none border-secondary" onclick="toggleSidebar()">
+        <i class="fas fa-bars text-info"></i>
+      </button>
+      <div class="d-flex align-items-center gap-2" style="cursor: pointer;" onclick="navigateTier('landing')">
+        <div class="rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px; background: linear-gradient(135deg, #0284c7, #0369a1);">
+          <i class="fas fa-layer-group text-white fs-6"></i>
+        </div>
+        <div>
+          <span class="fw-bold fs-5 tracking-wide text-white">NOC ENTERPRISE</span>
+          <span class="badge bg-dark border border-secondary text-info ms-2 px-2 py-1 small" style="font-size: 0.65rem;">PORTAL GATEWAY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center System Status -->
+    <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color);">
+      <div class="pulse-dot-green"></div>
+      <small class="fw-semibold text-light" style="font-size: 0.75rem;">WORKSPACE GATEWAY: <span class="text-success fw-bold">ONLINE</span></small>
+    </div>
+
+    <!-- Right Clock & Actions -->
+    <div class="d-flex align-items-center gap-2">
+      <div class="d-none d-sm-block px-3 py-1 rounded-pill border border-secondary" style="font-family: monospace; color: var(--accent-cyan); font-size: 0.85rem; background: rgba(0,0,0,0.3);">
+        <i class="far fa-clock me-1"></i> <span id="topbarClock">00:00:00 WIB</span>
+      </div>
+      <a href="https://wa.me/628111023422" target="_blank" class="btn btn-outline-success btn-sm rounded-pill px-3 d-none d-md-inline-flex align-items-center">
+        <i class="fab fa-whatsapp me-1"></i> <span>Bantuan</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- TIER 1: LANDING PAGE (KATALOG APLIKASI)                                   -->
+  <!-- ========================================================================= -->
+  <div id="tier-landing" class="animate__animated animate__fadeIn">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill border border-info border-opacity-25 bg-info bg-opacity-10 text-cyan small mb-3">
+          <i class="fas fa-shield-halved"></i> <span>SINGLE ACCESS POINT OPERASIONAL BUJP</span>
+        </div>
+        <h1 class="fw-bold text-white mb-3">Pusat Layanan Aplikasi Terpadu</h1>
+        <p class="text-muted mx-auto" style="max-width: 650px; font-size: 1rem;">
+          Pilih instrumen aplikasi operasional yang ingin Anda buka. Seluruh sistem berjalan mandiri dan terhubung langsung ke database Google Sheets masing-masing.
+        </p>
+      </div>
+
+      <!-- DAFTAR APLIKASI (LAUNCHPAD) -->
+      <div class="row g-4 justify-content-center">
+        
+        <!-- APLIKASI 1: ABSENSI BUJP -->
+        <div class="col-lg-5 col-md-6">
+          <div class="launchpad-card" onclick="openAppInWorkspace('absensi')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3 bg-info bg-opacity-10 text-cyan">
+                  <i class="fas fa-fingerprint fa-2x"></i>
+                </div>
+                <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 px-3 py-1 rounded-pill">MODUL 01</span>
+              </div>
+              <h4 class="fw-bold text-white mb-2">Absensi & Radar BUJP</h4>
+              <p class="text-muted small mb-4">
+                Sistem absensi masuk/pulang personel lapangan, validasi jam kerja shift, radar peta sebaran, dan live rolling ticker pemantauan.
+              </p>
+            </div>
+            <div class="pt-3 border-top border-secondary border-opacity-25 d-flex justify-content-between align-items-center text-cyan fw-bold small">
+              <span>Buka Aplikasi Absensi</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- APLIKASI 2: SIM-BUJP LAPORAN & INCIDENT -->
+        <div class="col-lg-5 col-md-6">
+          <div class="launchpad-card" onclick="openAppInWorkspace('laporan')">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="p-3 rounded-3 bg-primary bg-opacity-10 text-primary">
+                  <i class="fas fa-clipboard-list fa-2x"></i>
+                </div>
+                <span class="badge bg-primary bg-opacity-25 text-info border border-primary border-opacity-25 px-3 py-1 rounded-pill">MODUL 02</span>
+              </div>
+              <h4 class="fw-bold text-white mb-2">SIM-BUJP Laporan & Insiden</h4>
+              <p class="text-muted small mb-4">
+                Monitoring kepatuhan pengiriman laporan harian & bulanan, analisis heatmap kehadiran BUJP, serta penanganan tiket insiden.
+              </p>
+            </div>
+            <div class="pt-3 border-top border-secondary border-opacity-25 d-flex justify-content-between align-items-center text-cyan fw-bold small">
+              <span>Buka Aplikasi Laporan</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TIER 2: WORKSPACE VIEW (SMART APP WINDOW)                                -->
+  <!-- ========================================================================= -->
+  <div id="tier-workspace" class="d-none">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="workspace-sidebar" id="workspaceSidebar">
+      <div>
+        <button class="btn btn-outline-info w-100 py-2 rounded-pill fw-bold small mb-3" onclick="navigateTier('landing')">
+          <i class="fas fa-arrow-left me-1"></i> MENU UTAMA
+        </button>
+
+        <div class="nav-category">Daftar Aplikasi Aktif</div>
+        
+        <div class="workspace-nav-btn active" id="btnNavAbsensi" onclick="openAppInWorkspace('absensi')">
+          <i class="fas fa-fingerprint text-info"></i>
+          <span>Absensi & Radar BUJP</span>
+        </div>
+
+        <div class="workspace-nav-btn" id="btnNavLaporan" onclick="openAppInWorkspace('laporan')">
+          <i class="fas fa-clipboard-list text-primary"></i>
+          <span>SIM-BUJP Laporan</span>
+        </div>
+
+      </div>
+
+      <div class="pt-3 border-top border-secondary border-opacity-25 text-center text-muted small" style="font-size: 0.7rem;">
+        <span>NOC Enterprise Hub &copy; 2026</span>
+      </div>
+    </aside>
+
+    <!-- MAIN APP VIEWPORT -->
+    <main class="workspace-stage">
+      
+      <!-- Viewport Header -->
+      <div class="stage-header">
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-dark border border-secondary text-info small" id="currentAppBadge">MODUL 01</span>
+          <span class="text-white fw-bold small" id="currentAppTitle">Absensi & Radar BUJP</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-dark border-secondary text-light px-2 py-1" onclick="reloadCurrentIframe()" title="Muat Ulang Aplikasi">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+          <button class="btn btn-sm btn-dark border-secondary text-light px-2 py-1" onclick="openCurrentInNewTab()" title="Buka di Tab Baru">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Iframe Container -->
+      <div class="app-iframe-container">
+        <div id="frameLoader" class="frame-loader">
+          <div class="spinner-border text-info mb-3" role="status"></div>
+          <p class="text-light fw-bold small mb-0">MEMUAT APLIKASI OPERASIONAL...</p>
+        </div>
+        <iframe id="mainAppFrame" class="app-iframe" src="about:blank" onload="hideLoader()"></iframe>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // =========================================================================
+    // ⚙️ KONFIGURASI DAFTAR APLIKASI (DAFTARKAN URL ASLI APPS SCRIPT ANDA)
+    // =========================================================================
+    const APP_REGISTRY = {
+      "absensi": {
+        title: "Absensi & Radar BUJP (v6.26)",
+        badge: "MODUL 01",
+        // URL Web App GAS Aplikasi 1 (Sudah lengkap dengan token rahasia)
+        url: "https://script.google.com/macros/s/AKfycbwO2eb-_vcfEkScj-rEX5lfFgv0cjARn52Frhh2xsBxZe7XKddC4S6UFAnca8YWXN6HJQ/exec?token=absensi426bujp"
+      },
+      "laporan": {
+        title: "SIM-BUJP Laporan & Insiden (v8.5)",
+        badge: "MODUL 02",
+        // 🔴 GANTI URL DI BAWAH INI DENGAN URL WEB APP ASLI APLIKASI 2 ANDA:
+        url: "https://script.google.com/macros/s/AKfycbxLLyQnNDstg7RJ8vqXeITE72Nq2OT6V_fhXMY2QTgRiSg4cfWoVAlFr9W9UY_z4iptIQ/exec"
+      }
+    };
+
+    let currentAppKey = "absensi";
+
+    // Live Clock
+    function updateClock() {
+      const now = new Date();
+      const el = document.getElementById('topbarClock');
+      if (el) el.innerText = now.toLocaleTimeString('id-ID', { hour12: false }) + " WIB";
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Navigasi Tier
+    function navigateTier(tierId) {
+      if (tierId === 'landing') {
+        document.getElementById('tier-landing').classList.remove('d-none');
+        document.getElementById('tier-workspace').classList.add('d-none');
+      } else {
+        document.getElementById('tier-landing').classList.add('d-none');
+        document.getElementById('tier-workspace').classList.remove('d-none');
+      }
+      document.getElementById('workspaceSidebar').classList.remove('show');
+    }
+
+    // Buka Aplikasi di Viewport
+    function openAppInWorkspace(appKey) {
+      if (!APP_REGISTRY[appKey]) return;
+      currentAppKey = appKey;
+      navigateTier('workspace');
+
+      // Update Sidebar Active
+      document.querySelectorAll('.workspace-nav-btn').forEach(btn => btn.classList.remove('active'));
+      if (appKey === 'absensi') document.getElementById('btnNavAbsensi').classList.add('active');
+      else if (appKey === 'laporan') document.getElementById('btnNavLaporan').classList.add('active');
+
+      // Update Header Info
+      document.getElementById('currentAppBadge').innerText = APP_REGISTRY[appKey].badge;
+      document.getElementById('currentAppTitle').innerText = APP_REGISTRY[appKey].title;
+
+      // Load Iframe
+      showLoader();
+      document.getElementById('mainAppFrame').src = APP_REGISTRY[appKey].url;
+    }
+
+    function reloadCurrentIframe() {
+      showLoader();
+      const frame = document.getElementById('mainAppFrame');
+      frame.src = frame.src;
+    }
+
+    function openCurrentInNewTab() {
+      if (APP_REGISTRY[currentAppKey]) {
+        window.open(APP_REGISTRY[currentAppKey].url, '_blank');
+      }
+    }
+
+    function showLoader() {
+      document.getElementById('frameLoader').style.display = 'flex';
+    }
+
+    function hideLoader() {
+      document.getElementById('frameLoader').style.display = 'none';
+    }
+
+    function toggleSidebar() {
+      document.getElementById('workspaceSidebar').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
