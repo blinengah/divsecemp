@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://divsecemp.vercel.app/">
   <meta property="og:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta property="og:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1541256996761-85df2efaa164?q=80&w=1200&auto=format&fit=crop">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?auto=format&fit=crop&w=1200&q=80">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta name="twitter:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
@@ -21,7 +21,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- GOOGLE FONTS (MAZDA PRECISION SANS) & CSS LIBRARIES -->
+  <!-- GOOGLE FONTS & LIBRARIES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -91,9 +91,7 @@
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(192, 0, 0, 0); }
     }
 
-    /* =========================================================================
-       TIER 1: HERO CURTAIN & STAGGERED EDITORIAL SCROLLING
-       ========================================================================= */
+    /* TIER 1: HERO CURTAIN & STAGGERED EDITORIAL */
     #tier-landing {
       height: calc(100vh - 68px);
       overflow-y: auto;
@@ -102,7 +100,6 @@
       position: relative;
     }
 
-    /* 1. HERO BANNER FULL-VIEWPORT WITH OFFSHORE RIG BACKGROUND */
     .hero-rig-banner {
       min-height: 86vh;
       position: relative;
@@ -114,7 +111,7 @@
       padding: 3rem 1.5rem 6rem 1.5rem;
       background: 
         linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.75) 60%, rgba(10, 10, 10, 0.95) 100%),
-        url('https://images.unsplash.com/photo-1541256996761-85df2efaa164?q=80&w=2070&auto=format&fit=crop') center center / cover no-repeat fixed;
+        url('https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat fixed;
     }
 
     .hero-kicker {
@@ -173,10 +170,10 @@
       60% { transform: translateY(4px); }
     }
 
-    /* 2. PEEK CURTAIN SHEET (SLIDES OVER THE HERO ON SCROLL) */
+    /* PEEK CURTAIN SHEET */
     .curtain-sheet-container {
       position: relative;
-      margin-top: -4rem; /* Negative offset creates the peek effect */
+      margin-top: -4rem;
       background: #101010;
       border-radius: 36px 36px 0 0;
       border-top: 1px solid rgba(255, 255, 255, 0.18);
@@ -185,11 +182,6 @@
       z-index: 10;
     }
 
-    .sheet-header-pill {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 3.5rem;
-    }
     .sheet-drag-handle {
       width: 50px;
       height: 4px;
@@ -198,15 +190,13 @@
       margin-bottom: 1.5rem;
     }
 
-    /* 3. MAZDA STAGGERED EDITORIAL SECTIONS (ZIG-ZAG) */
+    /* MAZDA EDITORIAL ZIG-ZAG SECTIONS */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.3s ease;
     }
-    .editorial-section:last-child {
-      border-bottom: none;
-    }
+    .editorial-section:last-child { border-bottom: none; }
 
     .editorial-content {
       display: flex;
@@ -226,10 +216,7 @@
       align-items: center;
       gap: 10px;
     }
-    .editorial-kicker i {
-      color: var(--mazda-red);
-      font-size: 0.85rem;
-    }
+    .editorial-kicker i { color: var(--mazda-red); font-size: 0.85rem; }
 
     .editorial-heading {
       font-size: 2rem;
@@ -250,7 +237,6 @@
       max-width: 540px;
     }
 
-    /* MAZDA UNDERLINED TEXT CTA */
     .mazda-cta-link {
       display: inline-flex;
       align-items: center;
@@ -270,30 +256,15 @@
     .mazda-cta-link::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #ffffff;
-      transition: all 0.3s ease;
+      bottom: 0; left: 0; width: 100%; height: 2px;
+      background: #ffffff; transition: all 0.3s ease;
     }
-    .mazda-cta-link:hover {
-      color: var(--mazda-red);
-    }
-    .mazda-cta-link:hover::after {
-      background: var(--mazda-red);
-      width: 110%;
-    }
-    .mazda-cta-link i {
-      font-size: 0.78rem;
-      transition: transform 0.25s ease;
-    }
-    .mazda-cta-link:hover i {
-      transform: translateX(6px);
-      color: var(--mazda-red);
-    }
+    .mazda-cta-link:hover { color: var(--mazda-red); }
+    .mazda-cta-link:hover::after { background: var(--mazda-red); width: 110%; }
+    .mazda-cta-link i { font-size: 0.78rem; transition: transform 0.25s ease; }
+    .mazda-cta-link:hover i { transform: translateX(6px); color: var(--mazda-red); }
 
-    /* MEDIA CONTAINER */
+    /* MEDIA CONTAINER & PLACEHOLDER */
     .editorial-media-wrap {
       border-radius: 20px;
       overflow: hidden;
@@ -303,6 +274,9 @@
       border: 1px solid var(--mazda-border);
       cursor: pointer;
       background: #181818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .editorial-media-img {
       width: 100%;
@@ -332,9 +306,7 @@
       z-index: 2;
     }
 
-    /* =========================================================================
-       TIER 2: WORKSPACE COCKPIT VIEWPORT
-       ========================================================================= */
+    /* TIER 2: WORKSPACE */
     #tier-workspace {
       height: calc(100vh - 68px);
       display: flex;
@@ -376,10 +348,7 @@
       border: 1px solid transparent;
       margin-bottom: 4px;
     }
-    .workspace-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
-    }
+    .workspace-nav-btn:hover { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
     .workspace-nav-btn.active {
       background: rgba(255, 255, 255, 0.08);
       color: #ffffff;
@@ -413,12 +382,7 @@
       height: calc(100% - 52px);
     }
 
-    .app-iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #ffffff;
-    }
+    .app-iframe { width: 100%; height: 100%; border: none; background: #ffffff; }
 
     .frame-loader {
       position: absolute;
@@ -443,11 +407,7 @@
       letter-spacing: 0.05em;
       transition: all 0.2s ease;
     }
-    .btn-mazda-pill:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
+    .btn-mazda-pill:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
 
     .card-badge-small {
       font-size: 0.65rem;
@@ -463,10 +423,7 @@
 
     @media (max-width: 992px) {
       .workspace-sidebar {
-        position: fixed;
-        left: -290px;
-        top: 68px;
-        height: calc(100vh - 68px);
+        position: fixed; left: -290px; top: 68px; height: calc(100vh - 68px);
         box-shadow: 15px 0 40px rgba(0,0,0,0.8);
       }
       .workspace-sidebar.show { left: 0; }
@@ -518,7 +475,7 @@
   <!-- ========================================================================= -->
   <div id="tier-landing">
     
-    <!-- 1. FULL VIEWPORT HERO BANNER (OFFSHORE DRILLING RIG) -->
+    <!-- 1. FULL VIEWPORT HERO BANNER -->
     <section class="hero-rig-banner">
       <div class="hero-kicker animate__animated animate__fadeInDown">Integrated Security & Operations Suite</div>
       <h1 class="hero-title animate__animated animate__fadeInDown">Pusat Layanan Aplikasi Terpadu</h1>
@@ -532,23 +489,22 @@
       </div>
     </section>
 
-    <!-- 2. PEEK CURTAIN SHEET (SLIDES UP OVER HERO WHEN SCROLLED) -->
+    <!-- 2. PEEK CURTAIN SHEET (STAGGERED EDITORIAL SHOWCASE) -->
     <section class="curtain-sheet-container" id="curtainSheet">
       
-      <!-- TOP HANDLE INDICATOR -->
       <div class="d-flex flex-column align-items-center">
         <div class="sheet-drag-handle"></div>
       </div>
 
       <div class="container">
 
-        <!-- MODUL 01: ABSENSI BUJP (GAMBAR KIRI, PENJELASAN KANAN) -->
+        <!-- MODUL 01: ABSENSI BUJP (GAMBAR KIRI, TEKS KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('absensi')">
                 <span class="media-badge-overlay">Modul 01</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?q=80&w=1200&auto=format&fit=crop" alt="Absensi BUJP">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?auto=format&fit=crop&w=1200&q=80" alt="Absensi BUJP" onerror="handleImgError(this, 'fa-fingerprint', 'ABSENSI BUJP & RADAR')">
               </div>
             </div>
             <div class="col-lg-6 order-lg-2 order-2">
@@ -567,7 +523,7 @@
           </div>
         </div>
 
-        <!-- MODUL 02: LAPORAN HARIAN & BULANAN (PENJELASAN KIRI, GAMBAR KANAN) -->
+        <!-- MODUL 02: LAPORAN HARIAN & BULANAN (TEKS KIRI, GAMBAR KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-2">
@@ -586,19 +542,19 @@
             <div class="col-lg-6 order-lg-2 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('laporan')">
                 <span class="media-badge-overlay">Modul 02</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop" alt="Laporan Harian & Bulanan">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Laporan Harian & Bulanan" onerror="handleImgError(this, 'fa-clipboard-list', 'LAPORAN HARIAN & BULANAN')">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- MODUL 03: SUMMARY KEHADIRAN BUJP (GAMBAR KIRI, PENJELASAN KANAN) -->
+        <!-- MODUL 03: SUMMARY KEHADIRAN BUJP (GAMBAR KIRI, TEKS KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('summary')">
                 <span class="media-badge-overlay">Modul 03</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Summary Kehadiran">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Summary Kehadiran" onerror="handleImgError(this, 'fa-chart-pie', 'SUMMARY KEHADIRAN')">
               </div>
             </div>
             <div class="col-lg-6 order-lg-2 order-2">
@@ -617,7 +573,7 @@
           </div>
         </div>
 
-        <!-- MODUL 04: VISITOR EMP (PENJELASAN KIRI, GAMBAR KANAN) -->
+        <!-- MODUL 04: VISITOR EMP (TEKS KIRI, GAMBAR KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-2">
@@ -636,19 +592,19 @@
             <div class="col-lg-6 order-lg-2 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('visitor')">
                 <span class="media-badge-overlay">Modul 04</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Visitor emp">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Visitor emp" onerror="handleImgError(this, 'fa-id-badge', 'VISITOR EMP')">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- MODUL 05: KEHADIRAN PEKERJA EMP (GAMBAR KIRI, PENJELASAN KANAN) -->
+        <!-- MODUL 05: KEHADIRAN PEKERJA EMP (GAMBAR KIRI, TEKS KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul5')">
                 <span class="media-badge-overlay">Modul 05</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" alt="Kehadiran Pekerja emp">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Kehadiran Pekerja emp" onerror="handleImgError(this, 'fa-users-gear', 'KEHADIRAN PEKERJA EMP')">
               </div>
             </div>
             <div class="col-lg-6 order-lg-2 order-2">
@@ -667,7 +623,7 @@
           </div>
         </div>
 
-        <!-- MODUL 06: ANGGARAN DIVISI SECURITY (PENJELASAN KIRI, GAMBAR KANAN) -->
+        <!-- MODUL 06: ANGGARAN DIVISI SECURITY (TEKS KIRI, GAMBAR KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-2">
@@ -686,19 +642,19 @@
             <div class="col-lg-6 order-lg-2 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul6')">
                 <span class="media-badge-overlay">Modul 06</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Anggaran Security">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Anggaran Security" onerror="handleImgError(this, 'fa-wallet', 'ANGGARAN SECURITY')">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- MODUL 07: WEEKLY REPORT (GAMBAR KIRI, PENJELASAN KANAN) -->
+        <!-- MODUL 07: WEEKLY REPORT (GAMBAR KIRI, TEKS KANAN) -->
         <div class="editorial-section">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-6 order-lg-1 order-1">
               <div class="editorial-media-wrap" onclick="openAppInWorkspace('modul7')">
                 <span class="media-badge-overlay">Modul 07</span>
-                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Weekly Report">
+                <img class="editorial-media-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Weekly Report" onerror="handleImgError(this, 'fa-calendar-check', 'WEEKLY REPORT')">
               </div>
             </div>
             <div class="col-lg-6 order-lg-2 order-2">
@@ -853,6 +809,21 @@
     };
 
     let currentAppKey = "absensi";
+
+    // FAIL-SAFE IMAGE ERROR HANDLER (Mencegah logo jpeg pecah)
+    function handleImgError(imgEl, iconClass, labelText) {
+      const parent = imgEl.parentElement;
+      if (!parent) return;
+      imgEl.style.display = 'none';
+      const fallbackDiv = document.createElement('div');
+      fallbackDiv.className = 'w-100 h-100 d-flex flex-column align-items-center justify-content-center p-4 text-center';
+      fallbackDiv.style.background = 'linear-gradient(135deg, #1f2937 0%, #111827 100%)';
+      fallbackDiv.innerHTML = `
+        <i class="fas ${iconClass || 'fa-shield-halved'} fa-3x mb-3" style="color: var(--mazda-red);"></i>
+        <div class="text-white fw-bold small" style="letter-spacing: 0.1em;">${labelText || 'EMP SECURITY'}</div>
+      `;
+      parent.appendChild(fallbackDiv);
+    }
 
     // DIGITAL CLOCK
     function updateClock() {
