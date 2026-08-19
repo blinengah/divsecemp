@@ -209,11 +209,22 @@
       margin-bottom: 1.5rem;
     }
 
-    /* EDITORIAL ZIG-ZAG SECTIONS */
+    /* EDITORIAL ZIG-ZAG SECTIONS WITH CENTER-SCREEN FADE TRANSITION */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
+      opacity: 0.2;
+      transform: translateY(35px) scale(0.95);
+      filter: blur(3px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.85s ease;
+      will-change: opacity, transform, filter;
+    }
+    .editorial-section.is-active-center {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
     }
     .editorial-section:last-child { border-bottom: none; }
 
@@ -865,14 +876,41 @@
       if (loader) loader.style.display = 'none';
     }
 
-    // ATTACH IFRAME LOAD LISTENER VIA JS (Fixes "hideLoader is not defined" error)
+    // ATTACH IFRAME LOAD LISTENER & SCROLL TRANSITION OBSERVER
     document.addEventListener('DOMContentLoaded', () => {
       const frame = document.getElementById('mainAppFrame');
       if (frame) {
         frame.addEventListener('load', hideLoader);
       }
       hideLoader();
+
+      // Inisialisasi Transisi Fade Center-Screen saat digulir ke atas & bawah
+      initScrollCenterObserver();
     });
+
+    function initScrollCenterObserver() {
+      const scrollContainer = document.getElementById('tier-landing');
+      const sections = document.querySelectorAll('.editorial-section');
+      if (!scrollContainer || sections.length === 0) return;
+
+      const observerOptions = {
+        root: scrollContainer,
+        rootMargin: '-18% 0px -18% 0px', // Area sensitif tengah layar
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active-center');
+          } else {
+            entry.target.classList.remove('is-active-center');
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(sec => observer.observe(sec));
+    }
 
     // SMART IMAGE FALLBACK RESOLVER
     function handleImageFallback(imgEl, iconClass, labelText) {
