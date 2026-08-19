@@ -209,14 +209,15 @@
       margin-bottom: 1.5rem;
     }
 
-    /* EDITORIAL ZIG-ZAG SECTIONS WITH CONTINUOUS SCROLL PHYSICS */
+    /* EDITORIAL ZIG-ZAG SECTIONS (GPU ACCELERATED - ZERO LAG) */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      opacity: 0.15;
-      transform: translate3d(0, 20px, 0) scale(0.94);
-      filter: blur(2px);
-      will-change: opacity, transform, filter;
+      opacity: 0.18;
+      transform: translate3d(0, 24px, 0) scale(0.94);
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
     .editorial-section:last-child { border-bottom: none; }
 
@@ -868,37 +869,37 @@
       let isTicking = false;
 
       function calculateFrame() {
-        const containerRect = scrollContainer.getBoundingClientRect();
-        const viewportCenter = containerRect.top + (containerRect.height / 2);
-        const maxInfluenceDistance = containerRect.height * 0.55;
+        const containerHeight = scrollContainer.clientHeight;
+        const containerTop = scrollContainer.getBoundingClientRect().top;
+        const viewportCenter = containerTop + (containerHeight / 2);
+        const maxInfluenceDistance = containerHeight * 0.52;
 
-        sections.forEach(section => {
+        for (let i = 0; i < sections.length; i++) {
+          const section = sections[i];
           const rect = section.getBoundingClientRect();
           const sectionCenter = rect.top + (rect.height / 2);
           const distanceFromCenter = Math.abs(viewportCenter - sectionCenter);
 
           // Hitung progres kedekatan relatif (0 = tepi/luar, 1 = tepat di tengah layar)
           let rawProgress = 1 - (distanceFromCenter / maxInfluenceDistance);
-          rawProgress = Math.max(0, Math.min(1, rawProgress));
+          if (rawProgress < 0) rawProgress = 0;
+          else if (rawProgress > 1) rawProgress = 1;
 
-          // Kurva Easing Sinusoidal (Ultra Smooth Acceleration & Deceleration)
-          const smoothProgress = Math.sin(rawProgress * (Math.PI / 2));
+          // Kurva Easing Sinusoidal (Ultra Smooth Easing)
+          const smoothProgress = Math.sin(rawProgress * 1.5707963); // PI / 2
 
-          // Interpolasi Visual Berkelanjutan
-          const currentOpacity = 0.15 + (0.85 * smoothProgress);
+          // Interpolasi Visual Hardware-Accelerated (Opacity & Transform 3D)
+          const currentOpacity = 0.18 + (0.82 * smoothProgress);
           const currentScale = 0.94 + (0.06 * smoothProgress);
-          const currentTranslateY = (1 - smoothProgress) * 20;
-          const currentBlur = (1 - smoothProgress) * 2.5;
+          const currentTranslateY = (1 - smoothProgress) * 24;
 
           section.style.opacity = currentOpacity.toFixed(3);
           section.style.transform = `translate3d(0, ${currentTranslateY.toFixed(1)}px, 0) scale(${currentScale.toFixed(3)})`;
-          section.style.filter = `blur(${currentBlur.toFixed(1)}px)`;
-        });
+        }
 
         isTicking = false;
       }
 
-      // Hubungkan ke event scroll container dengan hardware-accelerated RAF
       scrollContainer.addEventListener('scroll', () => {
         if (!isTicking) {
           window.requestAnimationFrame(calculateFrame);
@@ -906,7 +907,6 @@
         }
       }, { passive: true });
 
-      // Hitung posisi frame awal & saat ukuran layar berubah
       calculateFrame();
       window.addEventListener('resize', () => {
         window.requestAnimationFrame(calculateFrame);
