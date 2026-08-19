@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://divsecemp.vercel.app/">
   <meta property="og:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta property="og:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/d/1OiPVOxktNM9gttE6kT0MwpECgKxx21xI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aplikasi Terintegrasi Divisi Security EMP">
   <meta name="twitter:description" content="Pusat Komando & Portal Layanan Operasional Pengamanan Terpadu Divisi Security EMP.">
@@ -73,7 +73,7 @@
     }
 
     .brand-mark {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 800;
       letter-spacing: 0.18em;
       color: #ffffff;
@@ -109,9 +109,29 @@
       align-items: center;
       text-align: center;
       padding: 3rem 1.5rem 6rem 1.5rem;
-      background: 
-        linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.75) 60%, rgba(10, 10, 10, 0.95) 100%),
-        url('https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?auto=format&fit=crop&w=2000&q=80') center center / cover no-repeat fixed;
+      overflow: hidden;
+      background-color: var(--mazda-black);
+    }
+
+    .hero-rig-banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.8) 60%, rgba(10, 10, 10, 0.98) 100%),
+        url('https://lh3.googleusercontent.com/d/1OiPVOxktNM9gttE6kT0MwpECgKxx21xI');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(4px);
+      -webkit-filter: blur(4px);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    .hero-rig-banner > * {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-kicker {
@@ -190,7 +210,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* MAZDA EDITORIAL ZIG-ZAG SECTIONS */
+    /* EDITORIAL ZIG-ZAG SECTIONS */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -442,13 +462,10 @@
       <button class="btn btn-dark d-lg-none border-0 text-white" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="d-flex align-items-center gap-2" style="cursor: pointer;" onclick="navigateTier('landing')">
-        <div class="rounded-circle p-2 d-flex align-items-center justify-content-center text-white" style="width: 36px; height: 36px; background: rgba(255,255,255,0.06); border: 1px solid var(--mazda-border);">
-          <i class="fas fa-shield-halved fs-6 text-white"></i>
-        </div>
+      <div class="d-flex align-items-center gap-3" style="cursor: pointer;" onclick="navigateTier('landing')">
+        <img src="https://lh3.googleusercontent.com/d/19bpHHKN1HjIdPCUF2QP446QKQFqpH2Nw" alt="Logo EMP" style="height: 38px; width: auto; object-fit: contain;">
         <div class="d-flex align-items-center">
-          <span class="brand-mark">EMP SECURITY</span>
-          <span class="badge ms-2 px-2 py-1 small" style="font-size: 0.62rem; background: rgba(255,255,255,0.06); border: 1px solid var(--mazda-border); letter-spacing: 0.1em;">OPERATIONAL</span>
+          <span class="brand-mark">DIVISI SECURITY</span>
         </div>
       </div>
     </div>
@@ -475,7 +492,7 @@
   <!-- ========================================================================= -->
   <div id="tier-landing">
     
-    <!-- 1. FULL VIEWPORT HERO BANNER -->
+    <!-- 1. FULL VIEWPORT HERO BANNER WITH BLURRED BG -->
     <section class="hero-rig-banner">
       <div class="hero-kicker animate__animated animate__fadeInDown">Integrated Security & Operations Suite</div>
       <h1 class="hero-title animate__animated animate__fadeInDown">Pusat Layanan Aplikasi Terpadu</h1>
@@ -510,7 +527,7 @@
             <div class="col-lg-6 order-lg-2 order-2">
               <div class="editorial-content">
                 <div class="editorial-kicker"><i class="fas fa-fingerprint"></i> Modul 01 &bull; Real-time Attendance</div>
-                <h2 class="editorial-heading">Absensi BUJP & Radar</h2>
+                <h2 class="editorial-heading">Absensi BUJP</h2>
                 <p class="editorial-desc">
                   Pemantauan presensi personel pengamanan secara real-time di seluruh wilayah penugasan, dilengkapi validasi jam shift kerja, radar peta live monitoring, dan audit perangkat anti-titip absen.
                 </p>
@@ -729,7 +746,7 @@
       </div>
 
       <div class="pt-3 border-top border-dark text-center text-muted" style="font-size: 0.7rem; letter-spacing: 0.08em;">
-        <span>EMP SECURITY &copy; 2026</span>
+        <span>DIVISI SECURITY &copy; 2026</span>
       </div>
     </aside>
 
@@ -810,7 +827,7 @@
 
     let currentAppKey = "absensi";
 
-    // FAIL-SAFE IMAGE ERROR HANDLER (Mencegah logo jpeg pecah)
+    // FAIL-SAFE IMAGE ERROR HANDLER
     function handleImgError(imgEl, iconClass, labelText) {
       const parent = imgEl.parentElement;
       if (!parent) return;
@@ -820,7 +837,7 @@
       fallbackDiv.style.background = 'linear-gradient(135deg, #1f2937 0%, #111827 100%)';
       fallbackDiv.innerHTML = `
         <i class="fas ${iconClass || 'fa-shield-halved'} fa-3x mb-3" style="color: var(--mazda-red);"></i>
-        <div class="text-white fw-bold small" style="letter-spacing: 0.1em;">${labelText || 'EMP SECURITY'}</div>
+        <div class="text-white fw-bold small" style="letter-spacing: 0.1em;">${labelText || 'DIVISI SECURITY'}</div>
       `;
       parent.appendChild(fallbackDiv);
     }
