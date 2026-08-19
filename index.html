@@ -209,22 +209,14 @@
       margin-bottom: 1.5rem;
     }
 
-    /* EDITORIAL ZIG-ZAG SECTIONS WITH CENTER-SCREEN FADE TRANSITION */
+    /* EDITORIAL ZIG-ZAG SECTIONS WITH CONTINUOUS SCROLL PHYSICS */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      opacity: 0.2;
-      transform: translateY(35px) scale(0.95);
-      filter: blur(3px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
-                  filter 0.85s ease;
+      opacity: 0.15;
+      transform: translate3d(0, 20px, 0) scale(0.94);
+      filter: blur(2px);
       will-change: opacity, transform, filter;
-    }
-    .editorial-section.is-active-center {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0px);
     }
     .editorial-section:last-child { border-bottom: none; }
 
@@ -876,7 +868,7 @@
       if (loader) loader.style.display = 'none';
     }
 
-    // ATTACH IFRAME LOAD LISTENER & SCROLL TRANSITION OBSERVER
+    // ATTACH IFRAME LOAD LISTENER & CONTINUOUS SMOOTH SCROLL ENGINE
     document.addEventListener('DOMContentLoaded', () => {
       const frame = document.getElementById('mainAppFrame');
       if (frame) {
@@ -884,32 +876,61 @@
       }
       hideLoader();
 
-      // Inisialisasi Transisi Fade Center-Screen saat digulir ke atas & bawah
-      initScrollCenterObserver();
+      // Inisialisasi Smooth Scroll-Linked Physics Engine
+      initContinuousScrollPhysics();
     });
 
-    function initScrollCenterObserver() {
+    function initContinuousScrollPhysics() {
       const scrollContainer = document.getElementById('tier-landing');
       const sections = document.querySelectorAll('.editorial-section');
       if (!scrollContainer || sections.length === 0) return;
 
-      const observerOptions = {
-        root: scrollContainer,
-        rootMargin: '-18% 0px -18% 0px', // Area sensitif tengah layar
-        threshold: 0.15
-      };
+      let isTicking = false;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-active-center');
-          } else {
-            entry.target.classList.remove('is-active-center');
-          }
+      function calculateFrame() {
+        const containerRect = scrollContainer.getBoundingClientRect();
+        const viewportCenter = containerRect.top + (containerRect.height / 2);
+        const maxInfluenceDistance = containerRect.height * 0.55;
+
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const sectionCenter = rect.top + (rect.height / 2);
+          const distanceFromCenter = Math.abs(viewportCenter - sectionCenter);
+
+          // Hitung progres kedekatan relatif (0 = tepi/luar, 1 = tepat di tengah layar)
+          let rawProgress = 1 - (distanceFromCenter / maxInfluenceDistance);
+          rawProgress = Math.max(0, Math.min(1, rawProgress));
+
+          // Kurva Easing Sinusoidal (Ultra Smooth Acceleration & Deceleration)
+          const smoothProgress = Math.sin(rawProgress * (Math.PI / 2));
+
+          // Interpolasi Visual Berkelanjutan
+          const currentOpacity = 0.15 + (0.85 * smoothProgress);
+          const currentScale = 0.94 + (0.06 * smoothProgress);
+          const currentTranslateY = (1 - smoothProgress) * 20;
+          const currentBlur = (1 - smoothProgress) * 2.5;
+
+          section.style.opacity = currentOpacity.toFixed(3);
+          section.style.transform = `translate3d(0, ${currentTranslateY.toFixed(1)}px, 0) scale(${currentScale.toFixed(3)})`;
+          section.style.filter = `blur(${currentBlur.toFixed(1)}px)`;
         });
-      }, observerOptions);
 
-      sections.forEach(sec => observer.observe(sec));
+        isTicking = false;
+      }
+
+      // Hubungkan ke event scroll container dengan hardware-accelerated RAF
+      scrollContainer.addEventListener('scroll', () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(calculateFrame);
+          isTicking = true;
+        }
+      }, { passive: true });
+
+      // Hitung posisi frame awal & saat ukuran layar berubah
+      calculateFrame();
+      window.addEventListener('resize', () => {
+        window.requestAnimationFrame(calculateFrame);
+      }, { passive: true });
     }
 
     // SMART IMAGE FALLBACK RESOLVER
