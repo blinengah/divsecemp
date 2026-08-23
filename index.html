@@ -330,8 +330,12 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 1.25rem 1rem;
-      transition: all 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1040;
+    }
+    /* DESKTOP COLLAPSED STATE (FULL WIDTH WORKSPACE) */
+    .workspace-sidebar.collapsed {
+      margin-left: -290px;
     }
 
     .sidebar-kicker {
@@ -797,9 +801,12 @@
     <!-- STAGE VIEWPORT -->
     <main class="workspace-stage">
       
-      <!-- STAGE HEADER -->
+      <!-- STAGE HEADER WITH SIDEBAR TOGGLE (☰) -->
       <div class="stage-header">
         <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-mazda-pill py-1 px-2.5 me-1" onclick="toggleWorkspaceSidebar()" title="Sembunyikan/Tampilkan Sidebar Suite">
+            <i class="fas fa-bars"></i>
+          </button>
           <span class="card-badge-small" id="currentAppBadge">01</span>
           <span class="text-white fw-bold small ms-1" id="currentAppTitle">WP&B 2027 Security</span>
         </div>
@@ -1000,11 +1007,18 @@
       document.getElementById('workspaceSidebar').classList.remove('show');
     }
 
-    // WORKSPACE APP SWITCHER
+    // WORKSPACE APP SWITCHER (WITH AUTO-HIDE SIDEBAR FOR MAXIMUM FULL WIDTH)
     function openAppInWorkspace(appKey) {
       if (!APP_REGISTRY[appKey]) return;
       currentAppKey = appKey;
       navigateTier('workspace');
+
+      // Auto-hide sidebar portal luar agar iframe aplikasi mendapatkan lebar layar 100% penuh
+      const sidebar = document.getElementById('workspaceSidebar');
+      if (sidebar) {
+        sidebar.classList.add('collapsed');
+        sidebar.classList.remove('show');
+      }
 
       // Update Active Navigation State
       document.querySelectorAll('.workspace-nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -1043,8 +1057,20 @@
       }
     }
 
+    // SMART SIDEBAR TOGGLE CONTROLLER (DESKTOP & MOBILE)
+    function toggleWorkspaceSidebar() {
+      const sidebar = document.getElementById('workspaceSidebar');
+      if (!sidebar) return;
+
+      if (window.innerWidth <= 992) {
+        sidebar.classList.toggle('show');
+      } else {
+        sidebar.classList.toggle('collapsed');
+      }
+    }
+
     function toggleSidebar() {
-      document.getElementById('workspaceSidebar').classList.toggle('show');
+      toggleWorkspaceSidebar();
     }
   </script>
 </body>
