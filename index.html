@@ -209,7 +209,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* EDITORIAL ZIG-ZAG SECTIONS (GPU ACCELERATED - ZERO LAG) */
+    /* EDITORIAL ZIG-ZAG SECTIONS */
     .editorial-section {
       padding: 3.5rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -274,7 +274,7 @@
     .mazda-cta-link i { font-size: 0.78rem; transition: transform 0.25s ease; }
     .mazda-cta-link:hover i { transform: translateX(6px); color: var(--mazda-red); }
 
-    /* MEDIA CONTAINER & PLACEHOLDER */
+    /* MEDIA CONTAINER */
     .editorial-media-wrap {
       border-radius: 20px;
       overflow: hidden;
@@ -316,7 +316,7 @@
       z-index: 2;
     }
 
-    /* TIER 2: WORKSPACE */
+    /* TIER 2: WORKSPACE COCKPIT */
     #tier-workspace {
       height: calc(100vh - 68px);
       display: flex;
@@ -392,7 +392,7 @@
       height: calc(100% - 52px);
     }
 
-    .app-iframe { width: 100%; height: 100%; border: none; background: #ffffff; }
+    .app-iframe { width: 100%; height: 100%; border: none; background: #090d16; }
 
     .frame-loader {
       position: absolute;
@@ -801,7 +801,7 @@
       <div class="stage-header">
         <div class="d-flex align-items-center gap-2">
           <span class="card-badge-small" id="currentAppBadge">01</span>
-          <span class="text-white fw-bold small ms-1" id="currentAppTitle">Absensi BUJP</span>
+          <span class="text-white fw-bold small ms-1" id="currentAppTitle">WP&B 2027 Security</span>
         </div>
         <div class="d-flex align-items-center gap-2">
           <button class="btn btn-mazda-pill py-1 px-2.5" onclick="reloadCurrentIframe()" title="Muat Ulang">
@@ -838,7 +838,7 @@
         url: "https://script.google.com/macros/s/AKfycbybVoryOtzP99Hwj_mkfZ97WOd1cF8arKpryhzMgtHUS54NZQqeEFqry8ZI9wR9AbwPLg/exec"
       },
       "absensi": {
-        // Update Active Navigation State
+        title: "Absensi BUJP (v6.26)",
         badge: "02",
         url: "https://script.google.com/macros/s/AKfycbwO2eb-_vcfEkScj-rEX5lfFgv0cjARn52Frhh2xsBxZe7XKddC4S6UFAnca8YWXN6HJQ/exec?token=absensi426bujp"
       },
@@ -924,7 +924,7 @@
           else if (rawProgress > 1) rawProgress = 1;
 
           // Kurva Easing Sinusoidal (Ultra Smooth Easing)
-          const smoothProgress = Math.sin(rawProgress * 1.5707963); // PI / 2
+          const smoothProgress = Math.sin(rawProgress * 1.5707963);
 
           // Interpolasi Visual Hardware-Accelerated (Opacity & Transform 3D)
           const currentOpacity = 0.18 + (0.82 * smoothProgress);
